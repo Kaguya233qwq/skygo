@@ -1,9 +1,9 @@
 package main
 
 import (
-	_ "goodbot/plugins"
-	"goodbot/utils"
 	"os"
+	_ "skygo/plugins"
+	"skygo/utils"
 
 	zero "github.com/wdvxdr1123/ZeroBot"
 	"github.com/wdvxdr1123/ZeroBot/driver"

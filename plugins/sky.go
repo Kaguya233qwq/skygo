@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-	"goodbot/gofer"
+	"skygo/gofer"
 	"strings"
 
 	logger "github.com/sirupsen/logrus"
