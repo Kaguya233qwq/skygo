@@ -2,8 +2,8 @@ package main
 
 import (
 	"os"
-	_ "skygo/plugins"
 	"skygo/utils"
+	_ "skygo/plugins"
 
 	zero "github.com/wdvxdr1123/ZeroBot"
 	"github.com/wdvxdr1123/ZeroBot/driver"
@@ -13,7 +13,7 @@ func main() {
 	botName := os.Getenv(utils.BotName)
 	superUserIDs := utils.GetSuperUsers()
 	accessToken := os.Getenv(utils.AccessToken)
-	CommandPrefix := os.Getenv(utils.CommandPrefix)
+	commandPrefix := os.Getenv(utils.CommandPrefix)
 
 	// 动态选择 WebSocket 驱动
 	var wsDriver zero.Driver
@@ -27,7 +27,7 @@ func main() {
 
 	zero.RunAndBlock(&zero.Config{
 		NickName:      []string{botName},
-		CommandPrefix: CommandPrefix,
+		CommandPrefix: commandPrefix,
 		SuperUsers:    superUserIDs,
 		Driver: []zero.Driver{
 			wsDriver,
