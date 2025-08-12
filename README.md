@@ -21,12 +21,13 @@
 
 ### 1. 下载程序
 
-前往项目 [Releases 页面](https://github.com/YOUR_USERNAME/skygo/releases)，根据你的操作系统下载最新的压缩包。
+前往项目 [Releases 页面](https://github.com/Kaguya233qwq/skygo/releases)，根据你的操作系统下载最新的压缩包。
 
--   `..._windows_amd64.zip`: 适用于 64 位的 Windows 系统。
--   `..._linux_amd64.tar.gz`: 适用于 64 位的 Linux 系统。
--   `..._darwin_amd64.tar.gz`: 适用于 Intel 芯片的 macOS。
--   `..._darwin_arm64.tar.gz`: 适用于 Apple M 系列芯片的 macOS。
+-   `skygo_windows_amd64.zip`: 适用于 64 位的 Windows 系统。
+-   `skygo_linux_amd64.tar.gz`: 适用于 64 位的 Linux 系统。
+-   `skygo_linux_arm64.tar.gz`: 适用于 64 位的 arm/aarch 的 Linux 系统。
+-   `skygo_darwin_amd64.tar.gz`: 适用于 Intel 芯片的 macOS。
+-   `skygo_darwin_arm64.tar.gz`: 适用于 Apple M 系列芯片的 macOS。
 
 ### 2. 解压文件
 
@@ -137,6 +138,8 @@
 ## 🙏 致谢
 
 -   **[ZeroBot](https://github.com/wdvxdr1123/ZeroBot)**: 本项目基于这个强大而简洁的go机器人框架开发，感谢各位开发者所贡献出的智慧与汗水。
+
+-   **[nonebot-plugin-sky](https://github.com/Kaguya233qwq/nonebot_plugin_sky)**: 适用于nonebot的sky光遇攻略插件，感谢开发者位本项目提供开发灵感（自己感谢自己可还行）
 
 ## 📜 许可证
 
