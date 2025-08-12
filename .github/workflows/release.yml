@@ -36,7 +36,7 @@ jobs:
       - name: Compress binaries with UPX
         run: |
           echo "Compressing binaries..."
-          upx --best --lzma dist/*
+          find dist -type f -not -name "*darwin*" -print0 | xargs -0 upx --best --lzma
           echo "Compression complete. File sizes:"
           ls -lh dist/
 
