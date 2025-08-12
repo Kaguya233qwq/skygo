@@ -14,7 +14,7 @@ import (
 )
 
 var API_KEY = os.Getenv("YT_API_KEY")
-var VERSION = "1.0.0"
+var VERSION = "1.0.2"
 
 func init() {
 	getChineseServerDailyTask()
