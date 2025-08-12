@@ -7,7 +7,7 @@
 
 一个基于 [ZeroBot](https://github.com/wdvxdr1123/ZeroBot)，使用 Go 语言开发的《光·遇》攻略机器人。
 
-旨在提供一个快速、轻量、跨平台的光遇机器人解决方案，易于部署和使用。
+旨在提供一个快速、轻量、跨平台的光遇机器人方案，易于部署和使用。
 
 ## 🚀 特性
 
@@ -87,6 +87,10 @@
 
 ### 常用onebot协议端推荐
 
+建议使用以下项目进行使用websocket进行平台对接，
+
+同时也感谢这些项目的优越开发者为社区做出的卓越贡献：
+
 [Lagrange](https://github.com/LagrangeDev/Lagrange.Core)
 
 [NapcatQQ](https://github.com/NapNeko/NapCatQQ)
@@ -139,7 +143,7 @@
 
 -   **[ZeroBot](https://github.com/wdvxdr1123/ZeroBot)**: 本项目基于这个强大而简洁的go机器人框架开发，感谢各位开发者所贡献出的智慧与汗水。
 
--   **[nonebot-plugin-sky](https://github.com/Kaguya233qwq/nonebot_plugin_sky)**: 适用于nonebot的sky光遇攻略插件，感谢开发者位本项目提供开发灵感（自己感谢自己可还行）
+-   **[nonebot-plugin-sky](https://github.com/Kaguya233qwq/nonebot_plugin_sky)**: 适用于nonebot的sky光遇攻略插件，感谢开发者为本项目提供开发灵感（自己感谢自己可还行）。
 
 ## 📜 许可证
 
