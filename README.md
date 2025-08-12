@@ -5,7 +5,7 @@
 [![Release](https://img.shields.io/github/v/release/Kaguya233qwq/skygo)](https://github.com/Kaguya233qwq/skygo/releases)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey)](https://github.com/Kaguya233qwq/skygo/releases)
 
-一个基于 [ZeroBot](https://github.com/wdvxdr1123/ZeroBot)，使用 Go 语言开发的《光·遇》游戏机器人。
+一个基于 [ZeroBot](https://github.com/wdvxdr1123/ZeroBot)，使用 Go 语言开发的《光·遇》攻略机器人。
 
 旨在提供一个快速、轻量、跨平台的光遇机器人解决方案，易于部署和使用。
 
@@ -19,7 +19,7 @@
 
 对于大多数用户，推荐直接从 **Releases** 页面下载预编译好的程序。
 
-#### 1. 下载程序
+### 1. 下载程序
 
 前往项目 [Releases 页面](https://github.com/YOUR_USERNAME/skygo/releases)，根据你的操作系统下载最新的压缩包。
 
@@ -28,11 +28,11 @@
 -   `..._darwin_amd64.tar.gz`: 适用于 Intel 芯片的 macOS。
 -   `..._darwin_arm64.tar.gz`: 适用于 Apple M 系列芯片的 macOS。
 
-#### 2. 解压文件
+### 2. 解压文件
 
-将下载的压缩包解压到。
+将下载的压缩包解压到需要部署或运行的设备的任意目录。
 
-#### 3. 首次运行 (生成配置)
+### 3. 首次运行 (生成配置)
 
 直接运行解压后的可执行文件。
 -   **Windows**: 双击 `skygo_windows_xxx.exe`。
@@ -44,7 +44,7 @@
 
 程序会自动创建一个名为 `.env` 的文件并退出。
 
-#### 4. 编辑配置文件
+### 4. 编辑配置文件
 
 使用任意文本编辑器打开刚刚生成的 `.env` 文件，根据下面的说明填写所有必要信息。
 
@@ -62,11 +62,11 @@
 | `WS_CLIENT_URL`      | **(二选一)** 正向 WebSocket 地址。如果使用此项，请将 `WS_SERVER_URL` 留空。                                                                          | `ws://127.0.0.1:6700`                    |
 | `ACCESS_TOKEN`         | **可选。** 对接协议端时通信所需的令牌，需要和协议端保持一致，默认为空                                                                            | `12345`                           |
 
-#### 5. 再次运行
+### 5. 再次运行
 
 配置好 `.env` 文件后保存，再次运行程序。如果其他错误，那么skygo此时应该就成功启动并连接到您的协议端了,您可以开始使用机器人内置的指令。
 
-#### 指令列表
+### 指令列表（需要命令前缀）
 
 `status`: 查看bot运行设备的占用状态
 
@@ -84,7 +84,7 @@
 
 `天气预报`：获取游戏内每日的天气预报
 
-#### 常用onebot协议端推荐
+### 常用onebot协议端推荐
 
 [Lagrange](https://github.com/LagrangeDev/Lagrange.Core)
 

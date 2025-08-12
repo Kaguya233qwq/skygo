@@ -1,0 +1,68 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 安装与您 go环境
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: 'go.mod'
+
+      # 运行构建脚本
+      - name: Run build script
+        run: |
+          chmod +x build.sh
+          ./build.sh
+
+      # 安装 UPX
+      - name: Install UPX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y upx-ucl
+
+      # 使用 UPX 压缩二进制文件
+      # 对 dist/ 目录下的所有文件进行最高级别压缩
+      - name: Compress binaries with UPX
+        run: |
+          echo "Compressing binaries..."
+          upx --best --lzma dist/*
+          echo "Compression complete. File sizes:"
+          ls -lh dist/
+
+      # 将二进制文件打包成独立的压缩包
+      - name: Package binaries into archives
+        run: |
+          mkdir release-assets
+          cd dist
+          for file in *; do
+            if [[ "$file" == *.exe ]]; then
+              zip "../release-assets/${file%.exe}.zip" "$file"
+            else
+              tar -czvf "../release-assets/${file}.tar.gz" "$file"
+            fi
+          done
+          cd ..
+          echo "Created release archives:"
+          ls -l release-assets/
+
+      # 创建 release 并上传附件
+      - name: Create Release and Upload Assets
+        uses: softprops/action-gh-release@v2
+        with:
+          # 基于标签名生成release
+          name: Release ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          body: |
+            Binaries are automaticlly build by github actions
+          files: release-assets/*

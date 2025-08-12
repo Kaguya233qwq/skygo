@@ -7,7 +7,7 @@ echo ""
 # --- 配置 ---
 LDFLAGS="-s -w"
 SOURCE_FILE="main.go"
-OUTPUT_BASE="bot"
+OUTPUT_BASE="skygo"
 OUTPUT_PATH="dist"
 TARGETS=(
     "windows/amd64"

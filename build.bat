@@ -6,7 +6,7 @@ ECHO Starting cross-compilation for bot...
 REM --- Configuration ---
 SET LDFLAGS="-s -w"
 SET SOURCE_FILE="main.go"
-SET OUTPUT_BASE="bot"
+SET OUTPUT_BASE="skygo"
 SET OUTPUT_PATH="dist"
 REM -------------------
 
