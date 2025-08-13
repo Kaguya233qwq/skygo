@@ -3,6 +3,7 @@ package plugins
 import (
 	"encoding/base64"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"os"
 	"skygo/gofer"
@@ -14,9 +15,19 @@ import (
 )
 
 var API_KEY = os.Getenv("YT_API_KEY")
-var VERSION = "1.0.2"
+var VERSION = "1.0.3"
+
+var ErrInvalidAPIKey = errors.New("无效的API Key")
+var ErrApiCodeUnusually = errors.New("Api状态码异常")
 
 func init() {
+	err := checkingApiKey()
+	if err != nil {
+		logger.Error(err)
+		logger.Error("请检查您的api_key是否配置正确")
+		os.Exit(1)
+	}
+
 	getChineseServerDailyTask()
 	getLocationOfSeasonCandles()
 	getSeasonStatus()
@@ -25,6 +36,46 @@ func init() {
 	getSkyWeatherForecast()
 	getSkyMenu()
 	logger.Info("Plugin:Sky loaded successfully")
+}
+
+// 检查api_key有效性
+func checkingApiKey() error {
+	type Response struct {
+		Code any    `json:"code"`
+		Msg  string `json:"msg"`
+		Data string `json:"data"`
+	}
+
+	api := "https://api.t1qq.com/api/tool/yiyan"
+	headers := map[string]string{}
+	params := map[string]string{"key": API_KEY}
+	resp, err := gofer.Get(api, headers, params)
+	if err != nil {
+		panic(err)
+	}
+	var response Response
+	err = json.Unmarshal([]byte(resp.Body), &response)
+	if err != nil {
+		panic(err)
+	}
+	//对response.Code进行类型判断
+	switch code := response.Code.(type) {
+	case float64:
+		if int(code) == 403 {
+			return ErrInvalidAPIKey
+		}
+	case string:
+		if code == "200" {
+			logger.Info("调用成功，ApiKey已正确配置")
+			return nil
+		}
+		return ErrApiCodeUnusually
+	default:
+		// 未知的Code类型(不太可能有)
+		return fmt.Errorf("unexpected type for 'code' field: %T", code)
+	}
+	logger.Info("调用成功，ApiKey已正确配置")
+	return nil
 }
 
 func getChineseServerDailyTask() {

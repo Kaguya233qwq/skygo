@@ -39,7 +39,7 @@
 -   **Windows**: 双击 `skygo_windows_xxx.exe`。
 -   **Linux / macOS**: 
 
-授予软件可执行权限：`chmod x+ skygo_xxx_xxx`
+授予软件可执行权限：`chmod +x skygo_xxx_xxx`
 
 在终端中运行 `./skygo_xxx_xxx`
 
@@ -137,6 +137,7 @@
 ## 更新日志
 
 2025.8.12  v1.0.2 初次推送，使用actions构建，并修复一些问题
+2025.8.13  v1.0.3 添加api_key有效性检查机制
 
 
 ## 🙏 致谢
